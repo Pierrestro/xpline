@@ -9,7 +9,7 @@
         this.canvas = this.options["canvas"] || null;
         this.ctx = this.canvas ? this.canvas.getContext("2d") : null;
 
-        this.total_memory = 256;
+        this.total_memory = 1024;
 
         this.fast = options["fast"] || false;
         this.winnt_hack = options["winnt_hack"] || false;
@@ -186,8 +186,8 @@
             return v;
         }
 
-        this.total_memory = roundUp(mem + 32 + vgamem) * 1024 * 1024 | 0;
-        //Module["TOTAL_MEMORY"] = roundUp(mem + 32 + vgamem) * 1024 * 1024 | 0;
+        this.total_memory = roundUp(mem + 64 + vgamem) * 1024 * 1024 | 0;
+        //Module["TOTAL_MEMORY"] = roundUp(mem + 64 + vgamem) * 1024 * 1024 | 0;
         config.push("memory=" + mem + "M");
         config.push("vgamemory=" + vgamem + "M");
         this.buildDrive(config, "a", 0, "master");
