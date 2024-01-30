@@ -51,14 +51,14 @@
 		<script>
 			var finalResponse;
 
-			// FUNCTION FOR GETTING THE ISO IMAGE
-			function getISOImage()
+			// FUNCTION FOR GETTING THE qcow2 IMAGE
+			function getqcow2Image()
 				{
 				// CREATING THE REQUEST
 				var oReq = new XMLHttpRequest();
 
 				// SETTING WHICH FILE MUST BE OBTAINED
-				oReq.open("GET", "VirtualXP.iso", true);
+				oReq.open("GET", "VirtualXP.qcow2", true);
 
 				// SETTING THE RESPONSE TYPE
 				oReq.responseType = "blob";
@@ -113,7 +113,7 @@
 							else
 							{
 							// IF THERE IS AN ERROR, THE REQUEST IS EXECUTED ONE MORE TIME
-							getISOImage();
+							getqcow2Image();
 							}
 						}
 					};
@@ -130,10 +130,10 @@
 					};
 
 				// IF DURING THE REQUEST IS AN ERROR, THE REQUEST IS EXECUTED ONE MORE TIME
-				oReq.onerror = function(){setTimeout(function(){getISOImage();},1000);};
+				oReq.onerror = function(){setTimeout(function(){getqcow2Image();},1000);};
 
 				// IF DURING THE REQUEST IS A TIMEOUT, THE REQUEST IS EXECUTED ONE MORE TIME
-				oReq.ontimeout = function(e){setTimeout(function(){getISOImage();},1000);};
+				oReq.ontimeout = function(e){setTimeout(function(){getqcow2Image();},1000);};
 
 				// EXECUTING THE REQUEST
 				oReq.send(null);
@@ -187,8 +187,8 @@
 				document.addEventListener("keypress",function(e){blockSpecialKeys(e)});
 				document.addEventListener("keyup", function(e){blockSpecialKeys(e)});
 
-				// REQUESTING THE ISO IMAGE
-				getISOImage();
+				// REQUESTING THE qcow2 IMAGE
+				getqcow2Image();
 				});
 
 			if ("serviceWorker" in navigator)
